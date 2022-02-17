@@ -1,0 +1,44 @@
+@import "_variables.scss";
+@import "_typography.scss";
+@import "_theme.scss";
+
+
+@import "~bulma/sass/utilities/_all";
+// Set your colors
+$primary: $colorPrimary;
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+.button.is-primary {
+  background-color: $colorPrimary !important;
+  color: #000 !important;
+}
+
+.b-slider.is-primary .b-slider-fill {
+  background: $colorPrimary !important;
+}
+
+.b-tooltip.is-primary .tooltip-content {
+  background: $colorPrimary !important;
+  color: #000;
+}
+
+.is-primary {
+  background: $colorPrimary !important;
+}
+
+.form {
+  margin: 0 1em;
+}
+
+@media (min-width: 1024px){
+  .form {
+    margin: 0 33%;
+  }
+}

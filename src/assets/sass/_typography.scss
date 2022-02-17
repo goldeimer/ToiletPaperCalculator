@@ -1,0 +1,133 @@
+@import url("https://p.typekit.net/p.css?s=1&k=twh3vov&ht=tk&f=1981.1982.1983.1984.8542.8543.8544.8545.2005.2006.2007.2008.2009.2010.2011.2012&a=69100796&app=typekit&e=css");
+
+@font-face {
+  font-family: "Veneer";
+  src:  url("./assets/fonts/font.veneer.regular.woff") format('woff'),
+        url("./assets/fonts/font.veneer.regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  	font-family: "Museo", serif;
+  	font-weight: 300;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: "Museo";
+  	font-weight: 500;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: "Museo";
+  	font-weight: 700;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo, serif;
+  	font-weight: 900;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo, serif;
+  	font-weight: 300;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo, serif;
+  	font-weight: 500;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo, serif;
+  	font-weight: 700;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo, serif;
+  	font-weight: 900;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 300;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 500;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 700;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 900;
+	  font-style: normal;
+  	font-display: swap;
+}
+
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 300;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 500;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 700;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+@font-face {
+  	font-family: museo-sans, sans-serif;
+  	font-weight: 900;
+	  font-style: italic;
+  	font-display: swap;
+}
+
+#app {
+  font-family: Museo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+h1 {
+  font-family: Veneer;
+}
