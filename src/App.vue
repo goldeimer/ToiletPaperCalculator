@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+//@import "~bulma/sass/utilities/_all";
 @import "assets/sass/main.scss";
 
 </style>

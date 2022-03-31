@@ -1,10 +1,12 @@
 @import url("https://p.typekit.net/p.css?s=1&k=twh3vov&ht=tk&f=1981.1982.1983.1984.8542.8543.8544.8545.2005.2006.2007.2008.2009.2010.2011.2012&a=69100796&app=typekit&e=css");
 
 @font-face {
-  font-family: "Veneer";
-  src:  url("./assets/fonts/font.veneer.regular.woff") format('woff'),
-        url("./assets/fonts/font.veneer.regular.woff2") format("woff2");
+  font-family: 'veneer';
+  src:  url("./assets/fonts/veneer.woff") format('woff'),
+        url("./assets/fonts/veneer.woff2") format("woff2");
   font-display: swap;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -129,5 +131,6 @@
 }
 
 h1 {
-  font-family: Veneer;
+  font-family: 'veneer';
+  text-align: center;
 }
