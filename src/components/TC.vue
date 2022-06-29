@@ -26,15 +26,32 @@
             {{ this.menstruationCheckbox }}
           </b-checkbox>
           <b-tooltip
-            label="Je nach Menstruationsprodukt steigt der Klopapierverbrauch. Wir haben in einer nicht representativen Umfrage einen Mehrverbrauch im Durchschnitt von 33% im Monat ermittelt"
+            label="Je nach Menstruationsprodukt steigt der Klopapierverbrauch. Wir haben in einer nicht representativen Umfrage einen Mehrverbrauch im Durchschnitt von 45 Blatt pro Monat ermittelt"
             position="is-top"
             size="is-large"
             multilined>
             <b-button label="Info" type="is-dark" />
           </b-tooltip>
         </b-field>
+        <b-field>
+          <b-checkbox v-model="aboCheckbox"
+            true-value="Ich will Abovorschläge."
+            false-value="Nee keine Abovorschläge.">
+            {{ this.aboCheckbox }}
+          </b-checkbox>
+        </b-field>
         <b-field label="Wie viele Menschen leben in deinem Haushalt?">
             <b-numberinput min="1" v-model="peopleInHouse" controls-alignment="right"></b-numberinput>
+        </b-field>
+        <b-field v-if="this.aboCheckbox === 'Ich will Abovorschläge.'" label="Wie oft Möchtest du eine Lieferung bekommen?" class="peeriod">
+            <b-slider :min="1" :max="6" v-model="peeriot" aria-label="Zeitraum" :tooltip="false">
+                <b-slider-tick :value="1">Jeden Monat</b-slider-tick>
+                <b-slider-tick :value="2">Alle 2 Monate</b-slider-tick>
+                <b-slider-tick :value="3">Alle 3 Monate</b-slider-tick>
+                <b-slider-tick :value="4">Alle 4 Monate</b-slider-tick>
+                <b-slider-tick :value="5">Alle 5 Monate</b-slider-tick>
+                <b-slider-tick :value="6">Alle 6 Monate</b-slider-tick>
+            </b-slider>
         </b-field>
     </section>
     <section class="section is-small box container is-max-desktop yellow">
@@ -47,23 +64,13 @@
         Goldeimer Klopapier.
       </div>
       <br>
-      <h1 class="title">Zeitraum</h1>
-      <b-field class="peeriod">
-          <b-slider :min="1" :max="6" v-model="peeriot" aria-label="Zeitraum" :tooltip="false">
-              <b-slider-tick :value="1">Jeden Monat</b-slider-tick>
-              <b-slider-tick :value="2">Alle 2 Monate</b-slider-tick>
-              <b-slider-tick :value="3">Alle 3 Monate</b-slider-tick>
-              <b-slider-tick :value="4">Alle 4 Monate</b-slider-tick>
-              <b-slider-tick :value="5">Alle 5 Monate</b-slider-tick>
-              <b-slider-tick :value="6">Alle 6 Monate</b-slider-tick>
-          </b-slider>
-      </b-field>
       <div class="center">
-      Du solltest dir jeden {{ this.peeriot }}. Monat eine/n <h1 class="superstrong">{{ this.monthResult }}</h1> liefern lassen.
+      <h1 v-if="this.aboCheckbox === 'Ich will Abovorschläge.'" class="superstrong">{{ this.monthResult }}</h1>
     </div>
     <b-field class="center">
       <!--onclick="window.location.href = 'https://goldeimer.de/klopapier'-->
-      <b-button class="g-button"><a href="https://goldeimer.de/klopapier" target="_blank">Jetzt Bestellen!</a></b-button>
+      <!--b-button class="g-button"><a href="https://goldeimer.de/klopapier" target="_blank">Jetzt Bestellen!</a></b-button-->
+      <a class="g-button" href="https://goldeimer.de/klopapier" target="_blank">Jetzt Bestellen!</a>
     </b-field>
     </section>
     <section class="section is-small box container is-max-desktop">
@@ -112,13 +119,14 @@ export default {
   data () {
     return {
       menstruationCheckbox: 'Ja, ich menstruiere.',
+      aboCheckbox: 'Nee keine Abovorschläge.',
       poopsPerDay: 1,
       peopleInHouse: 1,
       wipesPerPoop: 1,
       papesPerWipe: 1,
       peesPerDay: 1,
       papesPerPee: 1,
-      peeriot: 1,
+      peeriot: 6,
       peeps: 1,
       rollWeight: 0.0901, // Faktor zum Kilo 11,0988
       rollsPerPackage: 8,
@@ -156,14 +164,18 @@ export default {
     monthResult () {
       let abo
       const aboResult = (this.rollsResult / 8 * this.peeriot)
-      if (aboResult <= 9) {
-        abo = 'Family Pack'
-      } else if (aboResult <= 27) {
-        abo = 'Jahresvorrat'
-      } else if (aboResult <= 81) {
-        abo = 'XXL Supervorrat'
+      if (aboResult <= 7) {
+        abo = 'Du solltest dir jeden ' + this.peeriot + '. Monat ein Family Pack liefern lassen.'
+      } else if (aboResult <= 28) {
+        abo = 'Du solltest dir jeden ' + this.peeriot + '. Monat einen Jahresvorrat liefern lassen.'
+      } else if (aboResult <= 42) {
+        abo = 'Du solltest dir jeden ' + this.peeriot + '. Monat einen Supervorrat liefern lassen.'
+      } else if (aboResult <= 84) {
+        abo = 'Du solltest dir jeden ' + this.peeriot + '. Monat einen XXL Supervorrat liefern lassen.'
+      } else if (aboResult <= 189) {
+        abo = 'Du solltest dir jeden ' + this.peeriot + '. Monat eine Palette liefern lassen.'
       } else {
-        abo = 'Palette'
+        abo = 'Du scheinst einen ziemlich hohen Bedarf an Klopapier zu haben, schreib uns am besten ne Mail!'
       }
       return abo
     },
@@ -182,7 +194,7 @@ export default {
     menstruation () {
       let menstruation
       if (this.menstruationCheckbox === 'Ja, ich menstruiere.') {
-        menstruation = 33
+        menstruation = 45
       } else {
         menstruation = 0
       }
@@ -211,6 +223,9 @@ a {
 a:visited {
   text-decoration: none;
   color: #ffe500;
+}
+a:hover {
+  color: #000;
 }
 
 .mini {
